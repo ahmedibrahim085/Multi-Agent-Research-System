@@ -1,0 +1,120 @@
+# Multi-Agent Research System .gitignore
+# ========================================
+# Based on synthesis report: docs/research-sessions/19112025_004907.../gitignore_best_practices_synthesis.md
+# Updated: 2025-11-19
+
+# ===========================
+# Claude Code Infrastructure
+# ===========================
+
+# MCP Memory Data (session-specific, don't commit)
+.claude/memory/
+
+# Personal development settings (user-specific)
+.claude/settings.local.json
+
+# Temporary extraction/analysis files in infrastructure
+.claude/**/*temp*
+.claude/**/*draft*.md
+
+# ===========================
+# Multi-Agent Research System
+# ===========================
+
+# Hooks and observability (keep locally for debugging, don't version)
+# hooks_logs/ contains runtime event data that changes with each session
+# These logs are valuable for debugging locally but shouldn't be versioned
+# since they're ephemeral and different across machines
+project_logs/
+hooks_logs/
+logs/
+events.db
+*.log
+
+# Research session artifacts (ephemeral execution data)
+docs/research-sessions/**/*.log
+docs/research-sessions/**/*.tmp
+docs/research-sessions/**/*_temp.*
+docs/research-sessions/**/*extraction_log*
+
+# Agent state and caching
+*.state
+state/
+.session_cache/
+.cache/
+
+# Research-specific patterns (from reference project)
+research_cache/
+**/*.extraction_log
+**/*_analysis_temp.md
+
+# Agent execution traces
+agent_logs/
+agent_traces/
+execution_history/
+run_artifacts/
+
+# Temporary analysis and planning
+**/*_draft.md
+**/*_wip_*.md
+**/*_backup.json
+
+# ===========================
+# Environment & Configuration
+# ===========================
+
+# Environment variables (never commit API keys)
+.env
+.env.local
+.env.*.local
+
+# ===========================
+# Standard Development
+# ===========================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env.bak/
+
+# ===========================
+# OS & IDE
+# ===========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project

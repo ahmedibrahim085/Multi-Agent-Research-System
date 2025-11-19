@@ -1,0 +1,96 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of multi-agent-research are you using?
+      placeholder: "v1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Research Tier
+      description: Which tier were you using when the bug occurred?
+      options:
+        - Tier 1 (Simple)
+        - Tier 2 (Specialist)
+        - Tier 3 (Light Parallel)
+        - Tier 4 (Comprehensive RBMAS)
+        - Tier 5 (Novel TODAS)
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clear and concise description of what the bug is
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Query: "..."
+        2. Agent selected: "..."
+        3. Error occurred: "..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Please paste relevant logs from `project_logs/`
+      render: shell
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        - OS:
+        - Claude Code Version:
+        - MCP Servers Installed:
+      value: |
+        - OS:
+        - Claude Code Version:
+        - MCP Servers:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues
+          required: true
+        - label: I have included logs from project_logs/
+          required: false
+        - label: I have tested on latest version
+          required: false

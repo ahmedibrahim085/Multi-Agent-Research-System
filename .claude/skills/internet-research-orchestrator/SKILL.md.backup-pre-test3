@@ -1,0 +1,588 @@
+---
+name: internet-research-orchestrator
+description: Orchestrate comprehensive TODAS research for novel/emerging domains (1-7 subagents adaptive). Specializes in unprecedented topics, post-training data, and emerging technologies. Uses adaptive depth-based methodology: straightforward queries (1 agent), standard queries (2-3 agents), complex queries (5-7 agents). Handles depth-first (multiple perspectives), breadth-first (distinct sub-topics), and straightforward investigations. Triggers include "novel", "emerging", "2025", "2026", "unprecedented", "new technology", research on topics that didn't exist during training cutoff.
+---
+
+# Novel Domain Research Orchestration (Tier 5 TODAS)
+
+**What is TODAS**: Tactical Optimization & Depth-Adaptive System - an adaptive research methodology that adjusts agent count (1-7) and research depth based on query complexity and novelty. Optimized for emerging domains and post-training information.
+
+## Quick Start
+
+1. **Analyze query novelty**: Assess if topic is novel/emerging (post-training, unprecedented, 2025+ developments)
+2. **Determine query type**: Depth-first (multiple perspectives), Breadth-first (distinct sub-topics), or Straightforward
+3. **Setup progress tracking**: Use TodoWrite to create task list for research phases
+4. **Calculate adaptive agent count**: 1 (simple) to 7 (complex) based on query dimensions and novelty
+5. **Execute TODAS workflow**: Assessment → Query Type → Plan → Execution
+6. **Spawn research-subagent instances**: Use Task tool with adaptive count (1-7 agents in parallel)
+7. **Synthesize findings**: Integrate results from all subagents into coherent analysis
+8. **Report completion**: Summary with source attribution and novelty assessment
+
+## TODAS Methodology Overview
+
+**Tier 5 specialization**: Novel and emerging domains requiring adaptive orchestration.
+
+**When to use this skill**:
+- ✅ Novel/emerging domains (didn't exist during training)
+- ✅ Post-training developments (2025, 2026 technologies)
+- ✅ Unprecedented topics (new paradigms, bleeding-edge tech)
+- ✅ Rapidly evolving fields (AI agents, quantum computing, Web3)
+- ✅ Multi-faceted queries requiring coordination (1-7 dimensions)
+
+**When NOT to use this skill**:
+- ❌ Established domains with known patterns (use Tier 4 internet-deep-orchestrator)
+- ❌ Simple lookups (use Tier 1 web-researcher)
+- ❌ Specialist queries (use Tier 2: academic-researcher, trend-analyst, etc.)
+- ❌ Standard multi-dimensional research (use Tier 3 internet-light-orchestrator)
+
+**Adaptive depth**: TODAS adjusts research depth dynamically:
+- **Straightforward queries**: 1 subagent (direct investigation)
+- **Standard complexity**: 2-3 subagents (multiple perspectives or sub-topics)
+- **Medium complexity**: 3-5 subagents (multi-faceted approaches)
+- **High complexity**: 5-7 subagents (broad coverage, many dimensions)
+
+**Tactical optimization**: Stop research when diminishing returns reached (efficiency over completeness).
+
+## Workflow: 4-Phase TODAS Process
+
+### Phase 1: Assessment and Breakdown
+
+**Analyze the user's query thoroughly**:
+
+1. **Identify core concepts**: Main entities, relationships, key questions
+2. **List required data**: Specific facts, temporal constraints, contextual boundaries
+3. **Assess novelty**: Is this topic post-training? Emerging? Unprecedented?
+4. **User expectations**: What form should answer take? (Report, analysis, comparison, list, etc.)
+5. **Critical analysis**: What features are most important? What does user care about most?
+
+**Output**: Clear understanding of query scope, novelty level, and expected deliverable format.
+
+### Phase 2: Query Type Determination
+
+**Explicitly classify query into one of three types**:
+
+#### Depth-First Query
+**When**: Multiple perspectives on SAME issue (going deep from many angles)
+
+**Characteristics**:
+- Single core question benefiting from diverse approaches
+- Requires different viewpoints, methodologies, or sources
+- Example: "What are the most effective treatments for depression?" (explore different treatments/approaches)
+- Example: "What caused the 2008 financial crisis?" (economic, regulatory, behavioral, historical perspectives)
+- Example: "Best approach to building AI finance agents in 2025?" (multiple methodologies)
+
+**Research strategy**:
+- Deploy 3-5 subagents exploring different methodological approaches
+- Each subagent investigates from unique perspective
+- Synthesis integrates diverse viewpoints into coherent analysis
+
+#### Breadth-First Query
+**When**: Distinct, independent sub-questions (going wide across topics)
+
+**Characteristics**:
+- Naturally divides into multiple parallel research streams
+- Sub-topics can be researched independently
+- Example: "Compare economic systems of three Nordic countries" (3 independent country researches)
+- Example: "Fortune 500 CEOs net worths and names" (intractable as single thread, split into batches)
+- Example: "Compare major frontend frameworks" (identify frameworks, then research each)
+
+**Research strategy**:
+- Enumerate all distinct sub-questions/sub-tasks
+- Deploy subagents with clear, crisp boundaries (prevent overlap)
+- Prioritize by importance and complexity
+- Aggregate findings into coherent whole
+
+#### Straightforward Query
+**When**: Focused, well-defined, single investigation sufficient
+
+**Characteristics**:
+- Simple fact-finding or basic analysis
+- Does not benefit from extensive multi-agent research
+- Example: "What is current population of Tokyo?" (simple lookup)
+- Example: "List all Fortune 500 companies" (single resource fetch)
+- Example: "Tell me about bananas" (basic query, short answer expected)
+
+**Research strategy**:
+- Deploy 1 subagent with clear, focused instructions
+- Specify exact data points required
+- Include basic verification methods
+- Synthesize findings efficiently
+
+**Output**: Explicit query type classification with reasoning.
+
+### Phase 3: Detailed Research Plan Development
+
+**Based on query type, develop specific plan**:
+
+#### For Depth-First Queries:
+1. Define 3-5 different methodological approaches or perspectives
+2. List specific expert viewpoints or sources of evidence
+3. Plan how each perspective contributes unique insights
+4. Specify synthesis strategy for integrating findings
+5. Example: "What causes obesity?" → genetic factors, environmental influences, psychological aspects, socioeconomic patterns, biomedical evidence
+
+#### For Breadth-First Queries:
+1. Enumerate all distinct sub-questions/sub-tasks
+2. Identify most critical sub-questions (focus on essential, avoid every angle)
+3. Prioritize by importance and expected complexity
+4. Define clear boundaries between sub-topics (prevent overlap)
+5. Plan aggregation strategy
+6. Example: "Compare EU country tax systems" → retrieve EU countries list, define comparison metrics, batch research by region (Northern, Western, Eastern, Southern Europe)
+
+#### For Straightforward Queries:
+1. Identify most direct, efficient path to answer
+2. Determine if basic fact-finding or minor analysis needed
+3. Specify exact data points required
+4. Determine most relevant sources
+5. Plan basic verification methods
+6. Create extremely clear task description for subagent
+
+**For all query types, evaluate each step**:
+- Can this be broken into independent subtasks? (efficiency)
+- Would multiple perspectives benefit this? (depth)
+- What specific output is expected? (clarity)
+- Is this strictly necessary to answer query? (focus)
+
+**Output**: Concrete research plan with clear subagent allocation.
+
+### Phase 4: Methodical Plan Execution
+
+**Execute the plan using adaptive subagent count**:
+
+#### Parallelizable Steps:
+1. **Deploy research-subagent instances** using Task tool
+   - Provide extremely clear task descriptions
+   - Pass researchPath to ALL subagents (if provided to skill)
+   - Include tracking parameters (SPAWNED_BY, SESSION_ID, INVOCATION_CONTEXT)
+2. **Spawn in parallel**: All Task calls in ONE message (efficiency)
+3. **Wait for completion**: Let subagents execute research
+4. **Synthesize findings**: Integrate results when complete
+
+#### Non-Parallelizable/Critical Steps:
+1. **Reasoning-only tasks**: Perform yourself (calculations, analysis, formatting)
+2. **Web research tasks**: Deploy subagent (orchestrator delegates, not executes)
+3. **Challenging steps**: Deploy additional subagents for more perspectives
+4. **Compare results**: Use ensemble approach and critical reasoning
+
+#### Throughout Execution:
+- **Monitor progress**: Continuously check if query being answered
+- **Update plan**: Adapt based on findings from subagents
+- **Bayesian reasoning**: Update priors based on new information
+- **Adjust depth**: If running out of time or diminishing returns, stop spawning and synthesize
+- **Tactical optimization**: Efficiency over completeness when appropriate
+
+**Output**: Complete research findings from all subagents ready for synthesis.
+
+## TodoWrite Integration
+
+**Use TodoWrite to track research progress**:
+
+```
+Before starting research:
+TodoWrite([
+  {content: "Analyze query and determine type", status: "in_progress", activeForm: "Analyzing query type"},
+  {content: "Develop research plan with specialist agent allocation", status: "pending", activeForm: "Developing research plan"},
+  {content: "Spawn specialist agents (N web-researcher, academic-researcher, etc.)", status: "pending", activeForm: "Spawning specialist agents"},
+  {content: "Spawn fact-checker for verification (if critical domain)", status: "pending", activeForm: "Spawning fact-checker"},
+  {content: "Synthesize findings from all specialists", status: "pending", activeForm": "Synthesizing findings"},
+  {content: "Report completion with source attribution and novelty assessment", status: "pending", activeForm": "Reporting completion"}
+])
+
+As you progress, mark tasks completed and update status.
+```
+
+**Benefits**:
+- User visibility into research progress
+- Clear phase tracking
+- Helps avoid skipping steps
+
+## Specialist Agent Selection (CRITICAL)
+
+🚨 **DO NOT use `research-subagent`** - This is a generic worker type lacking specialized capabilities. You MUST use specialist agents based on research needs.
+
+**Available Specialist Agents**:
+
+| Agent Type | Use When | Specialized Capabilities |
+|------------|----------|--------------------------|
+| **web-researcher** | General web queries, current information, broad topics | WebSearch, WebFetch, comprehensive web coverage |
+| **academic-researcher** | Scholarly papers, research publications, scientific topics | Academic databases, peer-reviewed sources, citations |
+| **search-specialist** | Complex queries, deep investigation, hard-to-find info | Boolean operators, advanced search techniques, deep web |
+| **trend-analyst** | Future forecasting, emerging trends, predictions | Weak signal detection, scenario planning, trend analysis |
+| **market-researcher** | Market sizing, segmentation, business intelligence | TAM/SAM/SOM analysis, consumer insights, market data |
+| **competitive-analyst** | Competitor analysis, SWOT, strategic intelligence | Competitive profiling, positioning, industry dynamics |
+| **synthesis-researcher** | Combine findings from multiple sources, meta-analysis | Pattern identification, cross-source integration, synthesis |
+| **fact-checker** | Verify claims, validate sources, check accuracy | Source credibility assessment, claim verification, validation |
+
+**Selection Strategy**:
+- **Novel/emerging topics**: web-researcher + trend-analyst
+- **Academic/research topics**: academic-researcher + search-specialist
+- **Market/business topics**: market-researcher + competitive-analyst
+- **Security/compliance**: academic-researcher + fact-checker (MANDATORY)
+- **Multi-source synthesis**: synthesis-researcher + fact-checker
+
+**Agent Registry Location**: `.claude/agents/` directory contains all specialist agent definitions.
+
+## Subagent Count Guidelines (Adaptive)
+
+**TODAS adjusts agent count based on complexity**:
+
+| Query Complexity | Subagent Count | Example |
+|------------------|----------------|---------|
+| **Straightforward** | 1 specialist | "What is tax deadline this year?" → 1 web-researcher |
+| **Standard** | 2-3 specialists | "Compare top 3 cloud providers" → 3 web-researchers (one per provider) |
+| **Medium** | 3-5 specialists | "Analyze AI impact on healthcare" → 4 agents (academic-researcher, market-researcher, trend-analyst, web-researcher) |
+| **High** | 5-7 specialists | "Fortune 500 CEOs birthplaces/ages" → 7 web-researchers in wave 1, then 7 more (sequential batching) |
+
+**Claude Code parallel limit**: Maximum 10 parallel tasks, cap at 7 for safety (hooks overhead).
+
+**For queries requiring >7 agents**: Use sequential batching:
+1. Spawn 7 specialist agents in parallel
+2. Wait for completion
+3. Spawn next 7 specialist agents
+4. Repeat until coverage complete
+
+**Principle**: Prefer fewer, more capable specialists over many narrow ones (reduces overhead).
+
+**Minimum**: Always spawn at least 1 specialist agent for ANY research task (orchestrator delegates, not executes).
+
+**Verification Phase**: After specialists complete, spawn fact-checker for critical domains (security, compliance, novel topics).
+
+## Task Tool Spawning Instructions
+
+**How to spawn specialist agent instances**:
+
+### Step 1: Plan Research Dimensions & Select Specialists
+
+Example: "WebRTC + Web3 convergence in 2025" → 3 dimensions:
+1. WebRTC current state and 2025 developments → **web-researcher** (current info)
+2. Web3 technologies and decentralization trends → **trend-analyst** (emerging tech)
+3. Convergence patterns and integration architectures → **academic-researcher** (research patterns)
+
+### Step 2: Call Task Tool for EACH Dimension in ONE Message
+
+🚨 **CRITICAL**: Use SPECIALIST agent types (web-researcher, academic-researcher, etc.), NOT research-subagent
+
+**Correct parallel spawning pattern**:
+
+```
+[Call Task tool:]
+subagent_type: "web-researcher"  ← USE SPECIALIST TYPE
+description: "Research WebRTC 2025 developments"
+prompt: "Research WebRTC's current state and 2025 roadmap. Focus on:
+- Latest WebRTC implementations (2025 features)
+- New codec support and performance improvements
+- Browser compatibility and adoption trends
+
+Research Path: docs/research-sessions/{session_id}/
+SESSION_ID: {session_id}
+SPAWNED_BY: internet-research-orchestrator
+INVOCATION_CONTEXT: subagent
+
+Output Requirements:
+- Save findings to Research Path above
+- File naming: webrtc-2025-research-subagent-001.json
+- Follow schema: .claude/skills/research/json-schemas/research-output-schema.json
+- Size limit: 22K tokens or 20K characters"
+
+[Call Task tool again in SAME message:]
+subagent_type: "trend-analyst"  ← SPECIALIST for emerging tech
+description: "Research Web3 decentralization trends"
+prompt: "Research Web3 technologies and decentralization in 2025. Focus on:
+- Emerging Web3 protocols (2025)
+- Decentralized infrastructure architectures
+- Real-world adoption and use cases
+
+[Same tracking parameters and output requirements]"
+
+[Call Task tool again in SAME message:]
+subagent_type: "academic-researcher"  ← SPECIALIST for patterns/research
+description: "Research WebRTC+Web3 convergence patterns"
+prompt: "Research integration patterns between WebRTC and Web3. Focus on:
+- Decentralized video streaming architectures
+- P2P communication with blockchain integration
+- Novel use cases emerging in 2025
+
+[Same tracking parameters and output requirements]"
+```
+
+**All Task calls in ONE message = parallel execution** (Claude Code optimization).
+
+### Step 3: Spawn Fact-Checker (After Specialists Complete)
+
+**For critical domains** (security, compliance, novel topics), spawn fact-checker:
+
+```
+[After specialists complete, call Task tool:]
+subagent_type: "fact-checker"
+description: "Verify critical claims from research"
+prompt: "Verify key claims from WebRTC, Web3, and convergence research. Check:
+- Citation accuracy and source credibility
+- Conflicting information across sources
+- Confidence levels for novel 2025 claims
+- Gaps in coverage or missing perspectives
+
+Research Path: docs/research-sessions/{session_id}/
+SESSION_ID: {session_id}
+SPAWNED_BY: internet-research-orchestrator
+
+Target verification rate: >75% (good), >85% (excellent)"
+```
+
+### What NOT to Do
+
+❌ **Using research-subagent** (lacks specialized capabilities):
+```
+Task(subagent_type="research-subagent", ...)  ← WRONG - use specialist agents
+```
+
+❌ **Sequential spawning** (slow):
+```
+Task(...), wait for completion, then Task(...), wait, then Task(...)
+```
+
+❌ **Bash workarounds** (breaks hooks integration):
+```
+Bash: claude_cli task run research-subagent "$(cat /tmp/task.md)" &
+```
+
+❌ **Creating task files and stopping** (NOT spawning):
+```
+Write task description to .txt file, then don't call Task tool
+```
+
+❌ **Skipping fact-checker for critical domains** (security, compliance, novel topics):
+```
+[Spawn specialists, synthesize, report] ← Missing verification phase
+```
+
+### What to ALWAYS Do
+
+✅ **Use SPECIALIST agent types** (web-researcher, academic-researcher, trend-analyst, etc.)
+✅ **Use Task tool** (it's available to you)
+✅ **Call Task multiple times in ONE message** (parallel spawning)
+✅ **Spawn specialists IMMEDIATELY after planning** (efficiency)
+✅ **Spawn fact-checker for critical domains** (security, compliance, novel topics)
+✅ **Pass researchPath to ALL agents** (when provided to skill)
+✅ **Include tracking parameters** (SPAWNED_BY, SESSION_ID, INVOCATION_CONTEXT)
+
+## Delegation Rules (CRITICAL)
+
+**Main Claude delegates ALL research to subagents**:
+
+### Core Orchestration Principles
+
+1. **Orchestrator role**: You coordinate and synthesize, NOT execute primary research
+   - Spawn 1-7 research-subagent instances (adaptive based on complexity)
+   - Provide each subagent with extremely detailed, specific instructions
+   - Let subagents perform all web searches, fact-finding, and information gathering
+   - Focus on planning, analyzing, integrating findings, identifying gaps
+
+2. **Verification requirement**: After planning, count how many subagents you plan to spawn
+   - If count = 0, revise plan immediately
+   - Every query requires AT LEAST 1 research-subagent
+   - Your value is orchestration and synthesis, not execution
+
+3. **ResearchPath coordination**: When invoked with researchPath parameter
+   - ALL subagents MUST save outputs to SAME researchPath
+   - Pass researchPath to EVERY subagent you spawn
+   - File coordination is MANDATORY for multi-agent research
+
+### Subagent Task Descriptions
+
+**Provide each subagent with**:
+1. **Specific research objective**: Ideally 1 core objective per subagent
+2. **Expected output format**: List, report, answer, analysis, etc.
+3. **Background context**: How subagent contributes to overall research plan
+4. **Key questions**: What to answer as part of research
+5. **Starting points and sources**: Define reliable information, list unreliable sources to avoid
+6. **Specific tools**: WebSearch, WebFetch for internet information gathering
+7. **Scope boundaries**: Prevent research drift (if needed)
+8. **Output requirements**: When researchPath provided (see section above)
+
+**Validation**: If all subagents follow instructions well, aggregate results should allow EXCELLENT answer to user query (complete, thorough, detailed, accurate).
+
+### Deployment Strategy
+
+**Priority and dependency**:
+- Deploy most important subagents first
+- If tasks depend on results from specific task, create that blocking subagent first
+- Ensure sufficient coverage for comprehensive research
+- All substantial information gathering delegated to subagents
+
+**Avoid overlap**:
+- Every subagent should have distinct, clearly separate tasks
+- Prevent replicating work unnecessarily
+- Avoid wasting resources on redundant research
+
+**Efficiency while waiting**:
+- Analyze previous results
+- Update research plan
+- Reason about user's query and how to best answer it
+- Do NOT idle waiting for subagents
+
+## Response Instructions
+
+### Before Providing Final Answer
+
+1. Review most recent facts compiled during research process
+2. Reflect deeply: Can these facts answer query sufficiently?
+3. Provide final answer in format best for user's query
+4. **When invoked with researchPath**: Return summary of research completed and file locations (research skill handles synthesis)
+5. **When invoked standalone**: Format final research report in Markdown with proper source attribution
+
+### Source Attribution (Tier 5 Critical)
+
+**For novel/emerging domains, transparency is essential**:
+
+- **Inline references**: "According to [Source Name]", "Research from [Organization] shows..."
+- **Sources section**: At end of report, list all key sources consulted
+- **Credibility**: Builds trust and allows verification
+- **Recency**: Note publication dates (critical for 2025+ topics)
+
+### Novelty Assessment
+
+**Include in synthesis**:
+- **Novelty level**: Is this truly emerging? Post-training? Unprecedented?
+- **Confidence**: How much information available? (Emerging topics = less data)
+- **Gaps**: What's unknown? What requires future research?
+- **Verification challenges**: Difficult to verify emerging claims (note limitations)
+
+## Examples
+
+### Example 1: Straightforward Novel Query (1 Subagent)
+
+**User query**: "What is Claude Sonnet 4.5 and when was it released?"
+
+**Main Claude reasoning**:
+- Query type: Straightforward (single focused investigation)
+- Novelty: High (Sonnet 4.5 released post-training)
+- Subagent count: 1 (simple lookup)
+
+**TodoWrite tracking**:
+```
+[
+  {content: "Determine query type: Straightforward", status: "completed"},
+  {content: "Spawn 1 research-subagent for Sonnet 4.5 info", status: "in_progress"},
+  {content: "Synthesize findings and report", status: "pending"}
+]
+```
+
+**Task tool call**:
+```
+Task(
+  subagent_type: "research-subagent",
+  description: "Research Claude Sonnet 4.5 release",
+  prompt: "Research Claude Sonnet 4.5 model. Find:
+  - Official release date
+  - Model capabilities and improvements
+  - Comparison to previous Sonnet versions
+  - Anthropic's official announcements
+
+  Sources: Prioritize Anthropic official site, reputable tech news
+
+  SESSION_ID: {session_id}
+  SPAWNED_BY: internet-research-orchestrator"
+)
+```
+
+**Synthesis**: After subagent returns, Main Claude synthesizes findings with source attribution and reports completion.
+
+### Example 2: Depth-First Novel Query (3-5 Subagents)
+
+**User query**: "Analyze multimodal AI agent frameworks emerging in 2025 - what are the leading approaches and their trade-offs?"
+
+**Main Claude reasoning**:
+- Query type: Depth-first (multiple perspectives on same issue)
+- Novelty: Very high (2025 developments, post-training)
+- Subagent count: 4 (different approaches/perspectives)
+
+**Research plan**:
+1. Subagent 1: Tool-augmented agents (AutoGPT, LangChain evolution)
+2. Subagent 2: Reasoning-first agents (Chain-of-Thought, ReAct patterns)
+3. Subagent 3: Vision-language agents (GPT-4V descendants, Gemini Ultra)
+4. Subagent 4: Code-execution agents (Code Interpreter evolution)
+
+**TodoWrite tracking**:
+```
+[
+  {content: "Determine query type: Depth-first", status: "completed"},
+  {content: "Develop 4-perspective research plan", status: "completed"},
+  {content: "Spawn 4 research-subagents in parallel", status: "in_progress"},
+  {content: "Synthesize findings with trade-off analysis", status: "pending"}
+]
+```
+
+**Task tool calls** (all in ONE message for parallel execution):
+```
+Task(subagent_type: "research-subagent", description: "Research tool-augmented agents", prompt: "[Detailed instructions for tool-augmented approach research]")
+Task(subagent_type: "research-subagent", description: "Research reasoning-first agents", prompt: "[Detailed instructions for reasoning patterns research]")
+Task(subagent_type: "research-subagent", description: "Research vision-language agents", prompt: "[Detailed instructions for multimodal capabilities research]")
+Task(subagent_type: "research-subagent", description: "Research code-execution agents", prompt: "[Detailed instructions for code generation research]")
+```
+
+**Synthesis**: After all 4 subagents return, Main Claude integrates findings, identifies trade-offs across approaches, assesses novelty and emerging trends, provides source-attributed analysis.
+
+### Example 3: Breadth-First Novel Query (5-7 Subagents)
+
+**User query**: "Compare the top 5 decentralized video streaming platforms in 2025 across performance, cost, adoption, and technology stack."
+
+**Main Claude reasoning**:
+- Query type: Breadth-first (5 independent platform researches)
+- Novelty: High (2025 platforms, emerging Web3 space)
+- Subagent count: 5 (one per platform)
+
+**Research plan**:
+1. Identify top 5 decentralized video platforms (preliminary research)
+2. For each platform, research: performance, cost, adoption, tech stack
+3. Spawn 5 parallel subagents (one per platform)
+4. Aggregate findings into comparison table
+
+**TodoWrite tracking**:
+```
+[
+  {content: "Identify top 5 decentralized video platforms", status: "completed"},
+  {content: "Spawn 5 research-subagents (one per platform)", status: "in_progress"},
+  {content: "Aggregate findings into comparison analysis", status: "pending"}
+]
+```
+
+**Task tool calls** (all in ONE message):
+```
+Task(subagent_type: "research-subagent", description: "Research Platform A", prompt: "[Detailed instructions for Platform A across 4 dimensions]")
+Task(subagent_type: "research-subagent", description: "Research Platform B", prompt: "[...]")
+Task(subagent_type: "research-subagent", description: "Research Platform C", prompt: "[...]")
+Task(subagent_type: "research-subagent", description: "Research Platform D", prompt: "[...]")
+Task(subagent_type: "research-subagent", description: "Research Platform E", prompt: "[...]")
+```
+
+**Synthesis**: After all 5 subagents return, Main Claude creates comparison table, identifies patterns across platforms, assesses maturity and adoption trends, provides source-attributed recommendations.
+
+## Key Differences from Other Tiers
+
+**Tier 5 (TODAS) vs Tier 4 (RBMAS)**:
+- **Adaptive agent count**: 1-7 (vs fixed 3-7)
+- **Tactical optimization**: Stop at diminishing returns (vs complete phases)
+- **Novel domain focus**: Post-training, emerging (vs established domains)
+- **Query type classification**: Depth/Breadth/Straightforward (vs dimension counting)
+- **Synthesis approach**: Novelty assessment, uncertainty quantification (vs cross-dimensional patterns)
+
+**Tier 5 (TODAS) vs Tier 3 (Light Parallel)**:
+- **Complexity**: Novel/emerging domains (vs standard 2-4 dimensions)
+- **Agent range**: 1-7 adaptive (vs 2-4 fixed)
+- **Methodology**: TODAS 4-phase (vs simple parallel coordination)
+- **Synthesis**: Novelty assessment (vs aggregation)
+
+**When to use Tier 5 vs others**:
+- ✅ Tier 5: Novel domains, post-training data, emerging tech, unprecedented topics
+- ✅ Tier 4: Established domains, comprehensive multi-dimensional research (4+ dimensions)
+- ✅ Tier 3: Standard research, 2-4 dimensions, known patterns
+- ✅ Tier 1-2: Simple lookups, specialist queries
+
+---
+
+**Skill Type**: Research Orchestration (Tier 5 - Novel Domains)
+**Methodology**: TODAS (Tactical Optimization & Depth-Adaptive System)
+**Agent Range**: 1-7 subagents (adaptive based on complexity)
+**Specialization**: Novel/emerging domains, post-training information, unprecedented topics
+**Created**: Phase 4 of agent-to-skill migration
+**Version**: 1.0

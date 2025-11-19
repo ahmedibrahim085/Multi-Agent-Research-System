@@ -1,0 +1,728 @@
+{
+  "version": "1.1",
+  "last_updated": "2025-11-19",
+  "total_agents": 13,
+  "description": "Comprehensive registry of all available research and analysis agents with their capabilities, use cases, and routing metadata",
+  "agents": [
+    {
+      "name": "web-researcher",
+      "type": "specialist",
+      "category": "information_gathering",
+      "capabilities": [
+        "general_web_search",
+        "current_events",
+        "news_lookup",
+        "basic_research",
+        "quick_facts",
+        "mcp_integration"
+      ],
+      "best_for": [
+        "simple_fact_finding",
+        "quick_lookups",
+        "current_information",
+        "single_source_verification",
+        "basic_definitions",
+        "general_web_information"
+      ],
+      "query_patterns": [
+        "What is",
+        "Who is",
+        "When did",
+        "Quick search for",
+        "Find information on",
+        "Current news about"
+      ],
+      "cost_multiplier": 1,
+      "model": "sonnet",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "response_time": "fast (30-60 seconds)",
+      "complexity_level": "simple",
+      "success_criteria": [
+        "Clear factual answer found",
+        "Single authoritative source identified",
+        "Information is current and relevant",
+        "Query answered in <2 minutes"
+      ],
+      "failure_indicators": [
+        "Query requires multiple perspectives",
+        "Need deep analysis or synthesis",
+        "Conflicting sources requiring expert evaluation",
+        "Topic requires specialized domain knowledge"
+      ],
+      "fallback_agent": "search-specialist"
+    },
+    {
+      "name": "search-specialist",
+      "type": "specialist",
+      "category": "information_gathering",
+      "capabilities": [
+        "advanced_boolean_queries",
+        "field_specific_search",
+        "citation_tracking",
+        "deep_web_access",
+        "proximity_searches",
+        "semantic_search",
+        "specialized_databases"
+      ],
+      "best_for": [
+        "complex_search_queries",
+        "academic_citation_tracking",
+        "specialized_databases",
+        "hard_to_find_information",
+        "boolean_operators",
+        "field_searches"
+      ],
+      "query_patterns": [
+        "Find papers about",
+        "Search for technical documentation on",
+        "Track citations for",
+        "Advanced search",
+        "site:",
+        "filetype:",
+        "AND OR NOT"
+      ],
+      "cost_multiplier": 4,
+      "model": "sonnet",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "response_time": "moderate (2-3 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Comprehensive source identification",
+        "High-quality specialized sources found",
+        "Deep technical documentation retrieved",
+        "Complex query executed successfully"
+      ],
+      "failure_indicators": [
+        "Need synthesis across multiple domains",
+        "Require comparative analysis",
+        "Multi-perspective research needed",
+        "Sources found but insufficient depth"
+      ],
+      "fallback_agent": "academic-researcher"
+    },
+    {
+      "name": "academic-researcher",
+      "type": "specialist",
+      "category": "information_gathering",
+      "capabilities": [
+        "peer_reviewed_sources",
+        "scientific_papers",
+        "literature_reviews",
+        "evidence_based_research",
+        "arxiv_search",
+        "google_scholar",
+        "pubmed_search",
+        "citation_analysis"
+      ],
+      "best_for": [
+        "scientific_research",
+        "peer_reviewed_sources",
+        "academic_literature_review",
+        "evidence_based_findings",
+        "scholarly_analysis",
+        "research_methodology_assessment"
+      ],
+      "query_patterns": [
+        "Find academic papers on",
+        "Research shows",
+        "Scientific evidence for",
+        "Literature review on",
+        "Peer-reviewed research about",
+        "Scholarly sources for"
+      ],
+      "cost_multiplier": 4,
+      "model": "opus",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "response_time": "moderate (2-4 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Peer-reviewed sources found",
+        "Scientific rigor maintained",
+        "Evidence-based conclusions",
+        "Multiple high-quality papers identified"
+      ],
+      "failure_indicators": [
+        "Need business/market context beyond academia",
+        "Require multi-domain synthesis",
+        "Commercial analysis needed",
+        "Topic lacks academic research"
+      ],
+      "fallback_agent": "internet-deep-orchestrator"
+    },
+    {
+      "name": "fact-checker",
+      "type": "specialist",
+      "category": "quality_enhancement",
+      "capabilities": [
+        "claim_verification",
+        "source_validation",
+        "triple_source_verification",
+        "misinformation_detection",
+        "statistical_validation",
+        "credibility_assessment"
+      ],
+      "best_for": [
+        "verify_specific_claims",
+        "check_source_credibility",
+        "validate_facts",
+        "detect_misinformation",
+        "statistical_claim_validation",
+        "binary_verification"
+      ],
+      "query_patterns": [
+        "Verify this claim",
+        "Is it true that",
+        "Check if",
+        "Validate this fact",
+        "Confirm that",
+        "Is this accurate"
+      ],
+      "cost_multiplier": 1,
+      "model": "sonnet",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Grep",
+        "Read",
+        "Write"
+      ],
+      "response_time": "fast (1-2 minutes)",
+      "complexity_level": "simple",
+      "success_criteria": [
+        "Triple-source verification completed",
+        "Clear verdict (verified/false/uncertain)",
+        "Source credibility assessed",
+        "Evidence clearly documented"
+      ],
+      "failure_indicators": [
+        "Claim requires deep research to evaluate",
+        "Need comprehensive analysis",
+        "Multiple related claims need verification",
+        "Insufficient sources to verify"
+      ],
+      "fallback_agent": "synthesis-researcher"
+    },
+    {
+      "name": "trend-analyst",
+      "type": "specialist",
+      "category": "business_intelligence",
+      "capabilities": [
+        "future_forecasting",
+        "weak_signal_detection",
+        "scenario_planning",
+        "trend_identification",
+        "steep_analysis",
+        "trend_velocity_assessment",
+        "mega_trends_analysis"
+      ],
+      "best_for": [
+        "forecast_future_trends",
+        "predict_developments",
+        "scenario_analysis",
+        "emerging_pattern_detection",
+        "trend_lifecycle_analysis",
+        "future_oriented_research"
+      ],
+      "query_patterns": [
+        "Forecast",
+        "Predict trends for",
+        "What will happen in",
+        "Future of",
+        "Emerging trends in",
+        "Scenario planning for"
+      ],
+      "cost_multiplier": 4,
+      "model": "opus",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Read",
+        "Write",
+        "Grep"
+      ],
+      "response_time": "moderate (2-4 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Data-driven forecast provided",
+        "Multiple scenarios considered",
+        "Weak signals identified",
+        "Trend velocity assessed"
+      ],
+      "failure_indicators": [
+        "Need comprehensive multi-domain analysis",
+        "Require historical + future synthesis",
+        "Multiple trend dimensions needed simultaneously",
+        "Insufficient data for forecasting"
+      ],
+      "fallback_agent": "internet-deep-orchestrator"
+    },
+    {
+      "name": "market-researcher",
+      "type": "specialist",
+      "category": "business_intelligence",
+      "capabilities": [
+        "market_sizing",
+        "TAM_SAM_SOM_analysis",
+        "market_segmentation",
+        "consumer_insights",
+        "porters_five_forces",
+        "competitive_landscape_mapping",
+        "market_opportunity_assessment"
+      ],
+      "best_for": [
+        "market_size_estimation",
+        "market_opportunity_assessment",
+        "segmentation_analysis",
+        "consumer_behavior_research",
+        "business_intelligence",
+        "market_dynamics_analysis"
+      ],
+      "query_patterns": [
+        "Market size for",
+        "TAM SAM SOM",
+        "Market segmentation",
+        "Consumer insights on",
+        "Market opportunity",
+        "Porter's Five Forces"
+      ],
+      "cost_multiplier": 4,
+      "model": "opus",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Read",
+        "Write",
+        "Grep"
+      ],
+      "response_time": "moderate (3-5 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Market size estimated with methodology",
+        "Segmentation clearly defined",
+        "Data sources cited",
+        "Consumer insights documented"
+      ],
+      "failure_indicators": [
+        "Need competitive analysis integration",
+        "Require future forecasting",
+        "Multi-market comparison needed",
+        "Insufficient market data available"
+      ],
+      "fallback_agent": "internet-deep-orchestrator"
+    },
+    {
+      "name": "competitive-analyst",
+      "type": "specialist",
+      "category": "business_intelligence",
+      "capabilities": [
+        "competitor_profiling",
+        "SWOT_analysis",
+        "competitive_positioning",
+        "strategic_intelligence",
+        "moat_analysis",
+        "vulnerability_identification",
+        "competitive_dynamics"
+      ],
+      "best_for": [
+        "competitor_analysis",
+        "competitive_landscape_mapping",
+        "SWOT_assessment",
+        "positioning_analysis",
+        "strategic_intelligence_gathering",
+        "competitor_vulnerability_identification"
+      ],
+      "query_patterns": [
+        "Analyze competitors",
+        "SWOT analysis for",
+        "Competitive landscape",
+        "Compare [product] vs [product]",
+        "Competitor positioning",
+        "Strategic intelligence on"
+      ],
+      "cost_multiplier": 4,
+      "model": "sonnet",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Read",
+        "Write",
+        "Grep"
+      ],
+      "response_time": "moderate (3-5 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Key competitors identified",
+        "SWOT completed for each",
+        "Positioning clearly mapped",
+        "Strategic insights documented"
+      ],
+      "failure_indicators": [
+        "Need market sizing integration",
+        "Require trend forecasting",
+        "Multi-dimensional comparison across 5+ factors",
+        "Insufficient public competitor data"
+      ],
+      "fallback_agent": "internet-deep-orchestrator"
+    },
+    {
+      "name": "synthesis-researcher",
+      "type": "synthesizer",
+      "category": "analysis_synthesis",
+      "capabilities": [
+        "multi_source_synthesis",
+        "contradiction_resolution",
+        "pattern_identification",
+        "cross_domain_integration",
+        "gap_analysis",
+        "confidence_assessment",
+        "coherent_integration"
+      ],
+      "best_for": [
+        "combine_findings",
+        "resolve_contradictions",
+        "identify_patterns",
+        "integrate_multi_source_data",
+        "synthesize_research",
+        "create_coherent_narrative"
+      ],
+      "query_patterns": [
+        "Synthesize findings on",
+        "Combine results from",
+        "Integrate information about",
+        "Resolve contradictions in",
+        "Identify patterns across",
+        "Unify insights from"
+      ],
+      "cost_multiplier": 4,
+      "model": "opus",
+      "tools": [
+        "Read",
+        "Write",
+        "Grep"
+      ],
+      "response_time": "fast (1-3 minutes)",
+      "complexity_level": "moderate",
+      "success_criteria": [
+        "Sources synthesized coherently",
+        "Contradictions identified and resolved",
+        "Patterns clearly articulated",
+        "Gaps in research identified"
+      ],
+      "failure_indicators": [
+        "Original research needed (not just synthesis)",
+        "Need new data gathering",
+        "Insufficient sources to synthesize",
+        "Requires domain expertise beyond synthesis"
+      ],
+      "fallback_agent": "internet-deep-orchestrator"
+    },
+    {
+      "name": "research-subagent",
+      "type": "worker",
+      "category": "research_orchestration",
+      "capabilities": [
+        "task_execution",
+        "OODA_loop",
+        "5_to_20_tool_calls",
+        "focused_information_gathering",
+        "sub_question_investigation"
+      ],
+      "best_for": [
+        "specific_research_tasks",
+        "sub_question_investigation",
+        "focused_information_gathering",
+        "targeted_data_collection"
+      ],
+      "query_patterns": [],
+      "cost_multiplier": 4,
+      "model": "sonnet",
+      "tools": [
+        "WebSearch",
+        "WebFetch",
+        "Read",
+        "Write",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "response_time": "moderate (3-5 minutes)",
+      "complexity_level": "moderate",
+      "invoked_by": "internet-research-orchestrator",
+      "never_invoke_directly": true,
+      "execution_pattern": "OODA Loop (Observe, Orient, Decide, Act)",
+      "budget": "5-15 tool calls (complexity dependent), max 20",
+      "success_criteria": [
+        "Specific task completed",
+        "Sources gathered and reported",
+        "Tool call budget respected"
+      ],
+      "failure_indicators": [],
+      "fallback_agent": null
+    },
+    {
+      "name": "light-research-researcher",
+      "type": "worker",
+      "category": "research_orchestration",
+      "capabilities": [
+        "parallel_research",
+        "web_search",
+        "focused_subtopic_investigation",
+        "3_to_7_searches_per_subtopic",
+        "markdown_note_taking"
+      ],
+      "best_for": [
+        "parallel_subtopic_research",
+        "moderate_complexity_research",
+        "2_to_3_dimension_queries",
+        "standard_information_gathering"
+      ],
+      "query_patterns": [],
+      "cost_multiplier": 1,
+      "model": "haiku",
+      "tools": [
+        "WebSearch",
+        "Write",
+        "Glob",
+        "Grep",
+        "Read",
+        "WebFetch"
+      ],
+      "response_time": "fast (2-3 minutes)",
+      "complexity_level": "moderate",
+      "invoked_by": "internet-light-orchestrator",
+      "never_invoke_directly": true,
+      "execution_pattern": "3-7 web searches per subtopic, saves notes to docs/research-sessions/{session_id}/",
+      "budget": "3-7 web searches per researcher",
+      "success_criteria": [
+        "Subtopic researched thoroughly",
+        "Notes saved to session directory",
+        "3-7 searches completed",
+        "Key findings documented"
+      ],
+      "failure_indicators": [],
+      "fallback_agent": null,
+      "special_notes": "Uses haiku model for cost efficiency (~12x cheaper than sonnet). Works in parallel with other light-research-researcher agents."
+    },
+    {
+      "name": "light-research-report-writer",
+      "type": "worker",
+      "category": "research_orchestration",
+      "capabilities": [
+        "synthesis",
+        "report_writing",
+        "reading_research_notes",
+        "markdown_formatting",
+        "coherent_integration"
+      ],
+      "best_for": [
+        "synthesize_parallel_research",
+        "create_summary_reports",
+        "combine_researcher_findings",
+        "final_deliverable_creation"
+      ],
+      "query_patterns": [],
+      "cost_multiplier": 1,
+      "model": "haiku",
+      "tools": [
+        "Glob",
+        "Read",
+        "Write",
+        "Grep",
+        "WebFetch"
+      ],
+      "response_time": "fast (1-2 minutes)",
+      "complexity_level": "simple",
+      "invoked_by": "internet-light-orchestrator",
+      "never_invoke_directly": true,
+      "execution_pattern": "Reads notes from docs/research-sessions/{session_id}/, synthesizes into cohesive report",
+      "success_criteria": [
+        "All researcher notes synthesized",
+        "Clear, concise summary created",
+        "Report saved to session directory",
+        "No redundancy, coherent narrative"
+      ],
+      "failure_indicators": [],
+      "fallback_agent": null,
+      "special_notes": "Uses haiku model for cost efficiency. Final step in light research workflow after all researchers complete."
+    },
+    {
+      "name": "citations-agent",
+      "type": "quality_enhancement",
+      "category": "quality_enhancement",
+      "capabilities": [
+        "add_citations",
+        "preserve_text_integrity",
+        "source_attribution",
+        "citation_formatting",
+        "credibility_enhancement"
+      ],
+      "best_for": [
+        "add_citations_to_report",
+        "enhance_credibility",
+        "source_attribution",
+        "post_research_enhancement"
+      ],
+      "query_patterns": [
+        "Add citations to",
+        "Cite sources for",
+        "Add references to",
+        "Attribute sources in"
+      ],
+      "cost_multiplier": 1,
+      "model": "sonnet",
+      "tools": [
+        "Read",
+        "Write"
+      ],
+      "response_time": "fast (1-2 minutes)",
+      "complexity_level": "simple",
+      "success_criteria": [
+        "Citations added without text modification",
+        "Sources properly attributed",
+        "100% text preservation",
+        "Enhanced credibility"
+      ],
+      "failure_indicators": [],
+      "fallback_agent": null,
+      "typically_invoked_after": [
+        "internet-deep-orchestrator",
+        "internet-research-orchestrator",
+        "synthesis-researcher"
+      ],
+      "special_notes": "Preserves all content 100% unchanged, only adding attribution for key facts, conclusions, and substantive claims"
+    },
+    {
+      "name": "Explore",
+      "type": "specialist",
+      "category": "codebase_navigation",
+      "capabilities": [
+        "codebase_exploration",
+        "code_search",
+        "architecture_understanding",
+        "component_location",
+        "implementation_discovery"
+      ],
+      "best_for": [
+        "find_code_implementation",
+        "understand_architecture",
+        "locate_components",
+        "explore_codebase_structure",
+        "identify_patterns_in_code"
+      ],
+      "query_patterns": [
+        "Where is",
+        "How does [code]",
+        "Find implementation of",
+        "Locate component",
+        "What's the architecture of",
+        "Codebase structure"
+      ],
+      "cost_multiplier": 4,
+      "model": "sonnet",
+      "tools": [
+        "All tools"
+      ],
+      "response_time": "moderate (2-4 minutes)",
+      "complexity_level": "moderate",
+      "thoroughness_levels": {
+        "quick": "Basic file/pattern search",
+        "medium": "Moderate exploration across multiple locations",
+        "very thorough": "Comprehensive multi-location analysis"
+      },
+      "invoked_via": "Task tool with subagent_type=Explore",
+      "success_criteria": [
+        "Code location identified",
+        "Architecture explained",
+        "Implementation details provided",
+        "File paths with line numbers returned"
+      ],
+      "failure_indicators": [
+        "Not codebase-related query",
+        "Need web research instead of code exploration",
+        "Code doesn't exist in project"
+      ],
+      "fallback_agent": null,
+      "special_notes": "Invoked via Task tool, not a standalone agent file. Specialized for codebase navigation exclusively."
+    }
+  ],
+  "routing_guidelines": {
+    "tier_1_simple": {
+      "cost_multiplier": "1×",
+      "agents": [
+        "web-researcher",
+        "fact-checker",
+        "citations-agent"
+      ],
+      "when_to_use": "Single fact-finding, quick lookups, basic verification, citation enhancement"
+    },
+    "tier_2_moderate": {
+      "cost_multiplier": "4×",
+      "agents": [
+        "search-specialist",
+        "academic-researcher",
+        "trend-analyst",
+        "market-researcher",
+        "competitive-analyst",
+        "synthesis-researcher",
+        "Explore"
+      ],
+      "when_to_use": "Specialized domain expertise, focused analysis, single-dimension research"
+    },
+    "tier_3_light_parallel": {
+      "cost_multiplier": "3-5×",
+      "agents": [
+        "internet-light-orchestrator"
+      ],
+      "workers": [
+        "light-research-researcher",
+        "light-research-report-writer"
+      ],
+      "architecture": "Light Parallel (2-3 researchers + 1 report writer)",
+      "when_to_use": "Standard research with 2-3 distinct dimensions, moderate complexity, cost-sensitive queries"
+    },
+    "tier_4_comprehensive": {
+      "cost_multiplier": "15×",
+      "agents": [
+        "internet-deep-orchestrator"
+      ],
+      "architecture": "RBMAS (Role-Based Multi-Agent System)",
+      "when_to_use": "Multi-dimensional research (4+ dimensions), known domain, comprehensive analysis, structured methodology"
+    },
+    "tier_5_novel": {
+      "cost_multiplier": "15×",
+      "agents": [
+        "internet-research-orchestrator"
+      ],
+      "workers": [
+        "research-subagent"
+      ],
+      "architecture": "TODAS (Task-Oriented Dynamic Agent System)",
+      "when_to_use": "Novel/emerging domains, unknown territory, adaptive approach required, unknown unknowns"
+    }
+  },
+  "cost_optimization_principles": [
+    "Always prefer cheaper agents when capabilities overlap",
+    "Only escalate to 15× agents when query scope justifies cost",
+    "Intent overrides keywords (comprehensive + trivial = still simple agent)",
+    "Dimension count matters: 1 dimension = specialist, 4+ dimensions = orchestrator",
+    "Novel domain requires TODAS, known domain requires RBMAS"
+  ]
+}

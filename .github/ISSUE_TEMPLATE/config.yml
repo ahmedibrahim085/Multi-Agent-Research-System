@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & Discussions
+    url: https://github.com/ahmedibrahim085/multi-agent-research/discussions
+    about: For questions, use GitHub Discussions
+  - name: Security Vulnerability
+    url: https://github.com/ahmedibrahim085/multi-agent-research/security/advisories
+    about: Report security vulnerabilities privately
