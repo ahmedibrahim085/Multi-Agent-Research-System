@@ -1,0 +1,90 @@
+  name: Validate Project Structure
+
+  on:
+    push:
+      branches: [ main ]
+    pull_request:
+      branches: [ main ]
+
+  jobs:
+    validate-structure:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+
+        - name: Check Required Files
+          run: |
+            echo "Checking required files..."
+            test -f LICENSE || (echo "❌ LICENSE missing" && exit 1)
+            test -f README.md || (echo "❌ README.md missing" && exit 1)
+            test -f CONTRIBUTING.md || (echo "❌ CONTRIBUTING.md missing" && exit 1)
+            test -f CODE_OF_CONDUCT.md || (echo "❌ CODE_OF_CONDUCT.md missing" && exit 1)
+            test -f SECURITY.md || (echo "❌ SECURITY.md missing" && exit 1)
+            test -f CHANGELOG.md || (echo "❌ CHANGELOG.md missing" && exit 1)
+            echo "✅ All required files present"
+
+        - name: Validate Project Structure
+          run: |
+            echo "Validating project structure..."
+            test -d .claude || (echo "❌ .claude/ directory missing" && exit 1)
+            test -d .claude/agents || (echo "❌ .claude/agents/ missing" && exit 1)
+            test -d .claude/skills || (echo "❌ .claude/skills/ missing" && exit 1)
+            test -d .claude/hooks || (echo "❌ .claude/hooks/ missing" && exit 1)
+            test -d .github/ISSUE_TEMPLATE || (echo "❌ .github/ISSUE_TEMPLATE/ missing" && exit 1)
+            test -d .github/workflows || (echo "❌ .github/workflows/ missing" && exit 1)
+            echo "✅ Project structure valid"
+
+        - name: Validate JSON Files
+          run: |
+            echo "Validating JSON files..."
+            for file in $(find .claude -name "*.json"); do
+              echo "Checking $file..."
+              jq empty "$file" || (echo "❌ Invalid JSON: $file" && exit 1)
+            done
+            echo "✅ All JSON files valid"
+
+        - name: Check Agent Registry
+          run: |
+            echo "Checking agent registry..."
+            test -f .claude/agents/agent_registry.json || (echo "❌ Agent registry missing" && exit 1)
+            jq -e '.agents | length > 0' .claude/agents/agent_registry.json || (echo "❌ Agent registry empty" && exit 1)
+            echo "✅ Agent registry valid"
+
+        - name: Validate Skill Structure
+          run: |
+            echo "Validating skills..."
+            for skill_dir in .claude/skills/*/; do
+              skill_name=$(basename "$skill_dir")
+              if [ -f "$skill_dir/SKILL.md" ]; then
+                echo "Checking $skill_name..."
+                # Check for YAML frontmatter
+                head -1 "$skill_dir/SKILL.md" | grep -q "^---$" || (echo "❌ $skill_name missing YAML frontmatter" && exit 1)
+              fi
+            done
+            echo "✅ Skills valid"
+
+        - name: Check for Secrets
+          run: |
+            echo "Scanning for potential secrets..."
+            # Check for common secret patterns (basic check)
+            if grep -r -i "api[_-]key" . --exclude-dir=.git --exclude-dir=node_modules --exclude="*.md" --exclude="validate.yml"; then
+              echo "⚠️ Warning: Found potential API key references"
+            fi
+            if grep -r -E "sk-[a-zA-Z0-9]{40,}" . --exclude-dir=.git --exclude-dir=node_modules; then
+              echo "❌ Found potential OpenAI API key in code"
+              exit 1
+            fi
+            echo "✅ No obvious secrets detected"
+
+    validate-markdown:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+
+        - name: Check Markdown Links
+          uses: gaurav-nelson/github-action-markdown-link-check@v1
+          with:
+            use-quiet-mode: 'yes'
+            config-file: '.github/workflows/markdown-link-check-config.json'
+            base-branch: 'main'
+
